@@ -1,0 +1,43 @@
+server:
+  port: 1234
+  servlet:
+    context-path: /lms
+spring:
+  profiles:
+    active: local
+  #datasource:
+    #url: jdbc:postgresql://localhost:5432/LMS_DB
+    #username: postgres  #changed as per Local DB
+    #password: admin  #changed as per Local DB
+  jackson.deserialization.fail-on-unknown-properties: true
+  jackson.serialization.fail-on-empty-beans: false  # LMSPhase2 changes
+  mvc.hiddenmethod.filter.enabled: true
+  main.allow-bean-definition-overriding: true
+  #hibernate ddl Auto for CURDOperations
+  jpa.hibernate.ddl-auto: update
+
+
+#File related Configurations
+  
+  Spring :
+  http :
+   multipart :
+     enabled = true
+               
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_SIZE:8MB}
+      max-request-size: ${MAX_REQUEST_SIZE:8MB}
+      
+  project:
+  image: images/
+  application:
+    name: NumPyNinja-Learning Management System/1.0    
+
+logging:
+  file:
+    name: lmsservice.log
+    path: ./
+
+google:
+  calendar-id-lms: 42jsfha8fh5t0k9vem1gg8t7fc@group.calendar.google.com
